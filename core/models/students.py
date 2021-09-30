@@ -11,3 +11,7 @@ class Student(db.Model):
 
     def __repr__(self):
         return '<Student %r>' % self.id
+
+
+stud = Student()
+repr(stud)
