@@ -58,7 +58,6 @@ class Assignment(db.Model):
     @classmethod
     def upsert(cls, assignment_new: 'Assignment'):
         if assignment_new.id is not None:
-            print("inside if")
             assignment = Assignment.get_by_id(assignment_new.id)
             assertions.assert_found(
                 assignment, 'No assignment with this id was found')
@@ -67,7 +66,6 @@ class Assignment(db.Model):
 
             assignment.content = assignment_new.content
         else:
-            print("inside else: ", assignment_new.content)
             assignment = assignment_new
             db.session.add(assignment_new)
 
